@@ -1,0 +1,100 @@
+---
+title: "Lab2_2"
+---
+
+**Лабораторна робота №2**
+**Під'єднав необхідні бібліотеки**
+```{python}
+  import pandas as pd 
+  import scipy.stats as st
+  import seaborn as sns
+  import statsmodels.formula.api as smf
+  import matplotlib.pyplot as plt
+  import statsmodels.api as sm
+  from sklearn import preprocessing
+```
+
+**Завантажив датасет**
+```{python}
+  df = pd.read_csv('./cars.csv')
+  df.head()
+```
+
+**Перевірив тип даних та наявність відсутніх значень**
+```{python}
+  print(df.dtypes)
+  df.isnull().sum()
+```
+
+**Створив нову колонку company, яка зберігає бренд автомобіля**
+```{python}
+  def splitCarBrand(carName):
+    return carName.split(' ')[0]
+
+  df['company'] = df['CarName'].apply(splitCarBrand)
+  df.head()
+```
+
+**Перевірив новостворену колонку на унікальні значення**
+```{python}
+  df['company'].unique()
+```
+
+**Уніфікував дубльовані значення та перевірив**
+```{python}
+  replacement_dict = {'maxda': 'mazda', 'Nissan': 'nissan', 'porcshce': 'porsche', 'toyouta': 'toyota', 'vokswagen': 'volkswagen', 'vw': 'volkswagen'}
+  df['company'] = df['company'].replace(replacement_dict)
+  df['company'].unique()
+```
+
+**Закодував колонки з рядковим типом даних**
+```{python}
+  label_encoder = preprocessing.LabelEncoder()
+  categorial_vars = []
+
+  for col in df.columns:
+    if df[col].dtype == 'object':
+        categorial_vars.append(col+'Enc')
+        df[col+"Enc"] = label_encoder.fit_transform(df[col])
+
+  df.head()
+```
+
+**Порахував коефіцієнт кореляції Пірсона**
+```{python}
+  pearson_corr = df[categorial_vars+['price']].corr(method='pearson')
+  print(pearson_corr)
+  sns.heatmap(pearson_corr)
+```
+
+```{python}
+  df_encoded = pd.get_dummies(df, columns=['fueltype'])
+  df_encoded.columns
+```
+
+```{python}
+  def calc_OLS(x):
+      return smf.ols('price ~ {}'.format(x), df).fit()
+  
+  one_pred_model = calc_OLS('horsepower')
+  print(one_pred_model.summary())
+```
+
+```{python}
+  many_pred_model = sm.OLS(df['price'], df[['peakrpm', 'fueltypeEnc', 'drivewheelEnc', 'enginetypeEnc', 'fuelsystemEnc', 'horsepower']]).fit()
+  print(many_pred_model.summary())
+```
+
+```{python}
+  numerical_predictors = []
+  
+  for col in df.columns:
+    if df[col].dtype != 'object' and col != 'companyEnc':
+      numerical_predictors.append(col)
+```
+
+```{python}
+  # all_pred_model = sm.OLS(df['price'], df[categorial_vars, ['symboling','wheelbase', 'carlength', 'carwidth', 'carheight', 'curbweight', 'enginesize', 'boreratio', 'stroke', 'compressionratio', 'horsepower', 'peakrpm']])
+  all_pred_model = sm.OLS(df['price'], df[numerical_predictors]).fit()
+  print(all_pred_model.summary())
+```
