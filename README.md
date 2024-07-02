@@ -17,19 +17,19 @@ Car details v3.csv
 
 ##### Column descriptions
 
- 0   name           8128 non-null   object 
- 1   year           8128 non-null   int64  
- 2   selling_price  8128 non-null   int64  
- 3   km_driven      8128 non-null   int64  
- 4   fuel           8128 non-null   object 
- 5   seller_type    8128 non-null   object 
- 6   transmission   8128 non-null   object 
- 7   owner          8128 non-null   object 
- 8   mileage        7907 non-null   object 
- 9   engine         7907 non-null   object 
- 10  max_power      7913 non-null   object 
- 11  torque         7906 non-null   object 
- 12  seats          7907 non-null   float64
+ 1. name           8128 non-null   object 
+ 2. year           8128 non-null   int64  
+ 3. selling_price  8128 non-null   int64  
+ 4. km_driven      8128 non-null   int64  
+ 5. fuel           8128 non-null   object 
+ 6. seller_type    8128 non-null   object 
+ 7. transmission   8128 non-null   object 
+ 8. owner          8128 non-null   object 
+ 9. mileage        7907 non-null   object 
+ 10. engine         7907 non-null   object 
+ 11. max_power      7913 non-null   object 
+ 12. torque         7906 non-null   object 
+ 13. seats          7907 non-null   float64
 
 ## Task 2: Laboratory work #2
 
