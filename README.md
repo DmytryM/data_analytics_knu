@@ -55,12 +55,12 @@ cars.csv
 Data columns (total 26 columns):
  #   Column            Non-Null Count  Dtype  
 ---  ------            --------------  -----  
- 0   car_ID            205 non-null    int64  
- 1   symboling         205 non-null    int64  
- 2   CarName           205 non-null    object 
- 3   fueltype          205 non-null    object 
- 4   aspiration        205 non-null    object 
- 5   doornumber        205 non-null    object 
+ 1. car_ID            205 non-null    int64  
+ 2. symboling         205 non-null    int64  
+ 3. CarName           205 non-null    object 
+ 4. fueltype          205 non-null    object 
+ 5. aspiration        205 non-null    object 
+ 6. doornumber        205 non-null    object 
  6   carbody           205 non-null    object 
  7   drivewheel        205 non-null    object 
  8   enginelocation    205 non-null    object 
@@ -76,3 +76,33 @@ Data columns (total 26 columns):
 ...
  25  price             205 non-null    float64
 dtypes: float64(8), int64(8), object(10)
+
+## Task 2: Laboratory work #2
+
+Description of the experiment
+Before you is a table with the results of the experiment. You need to assess whether there are statistically significant differences between the control and test groups.
+
+value experimentVariant
+1 10.3804953740268 Control
+2 9.54686666784264 Control
+3 11.0882146509904 Control
+4 10.1472740570122 Control
+5 9.78980767524929 Control
+... ... ...
+996 1000 Treatment
+997 1200 Treatment
+998 1500 Treatment
+999 2000 Treatment
+1000 3000 Treatment
+1000 rows × 2 columns
+
+Description of variables:
+
+1. value - the value of the metric
+2. experimentVariant - Test variant (Control - control, Treatment - test)
+
+Task
+1. Compare the result between the test and the control for the two cases:
+2. Apply the bootstrap (by mean) and the Mann-Whitney U-test , then compare the p-value
+3. Apply the bootstrap (by median) and the Mann-Whitney U-test and then compare the p-value.
+4. Create appropriate visualizations, write conclusions that can be drawn based on the analysis of the applied criteria
