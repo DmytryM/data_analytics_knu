@@ -61,20 +61,19 @@ Data columns (total 26 columns):
  4. fueltype          205 non-null    object 
  5. aspiration        205 non-null    object 
  6. doornumber        205 non-null    object 
- 6   carbody           205 non-null    object 
- 7   drivewheel        205 non-null    object 
- 8   enginelocation    205 non-null    object 
- 9   wheelbase         205 non-null    float64
- 10  carlength         205 non-null    float64
- 11  carwidth          205 non-null    float64
- 12  carheight         205 non-null    float64
- 13  curbweight        205 non-null    int64  
- 14  enginetype        205 non-null    object 
- 15  cylindernumber    205 non-null    object 
- 16  enginesize        205 non-null    int64  
- 17  fuelsystem        205 non-null    object 
-...
- 25  price             205 non-null    float64
+ 7. carbody           205 non-null    object 
+ 8. drivewheel        205 non-null    object 
+ 9.   enginelocation    205 non-null    object 
+ 10.   wheelbase         205 non-null    float64
+ 11.  carlength         205 non-null    float64
+ 12.  carwidth          205 non-null    float64
+ 13.  carheight         205 non-null    float64
+ 14.  curbweight        205 non-null    int64  
+ 15.  enginetype        205 non-null    object 
+ 16.  cylindernumber    205 non-null    object 
+ 17.  enginesize        205 non-null    int64  
+ 18.  fuelsystem        205 non-null    object 
+ 25.  price             205 non-null    float64
 dtypes: float64(8), int64(8), object(10)
 
 ## Task 3: Laboratory work #3
@@ -83,18 +82,17 @@ Description of the experiment
 Before you is a table with the results of the experiment. You need to assess whether there are statistically significant differences between the control and test groups.
 
 value experimentVariant
-1 10.3804953740268 Control
-2 9.54686666784264 Control
-3 11.0882146509904 Control
-4 10.1472740570122 Control
-5 9.78980767524929 Control
-... ... ...
-996 1000 Treatment
-997 1200 Treatment
-998 1500 Treatment
-999 2000 Treatment
-1000 3000 Treatment
-1000 rows × 2 columns
+1. 10.3804953740268 Control
+2. 9.54686666784264 Control
+3. 11.0882146509904 Control
+4. 10.1472740570122 Control
+5. 9.78980767524929 Control
+996. 1000 Treatment
+997. 1200 Treatment
+998. 1500 Treatment
+999. 2000 Treatment
+1000. 3000 Treatment
+1000. rows × 2 columns
 
 Description of variables:
 
@@ -117,49 +115,49 @@ It is necessary to calculate the results of the A/A test, checking the FPR quali
 It is necessary to check the claim about the breakdown and find its reasons, if the split system is really broken.
 
 uid experimentVariant version purchase
-1 c4ca4238a0b923820dcc509a6f75849b 1 v2.8.0 0
-2 c81e728d9d4c2f636f067f89cc14862c 0 v2.9.0 0
-3 eccbc87e4b5ce2fe28308fd9f2a7baf3 1 v2.9.0 0
-4 a87ff679a2f3e71d9181a67b7542122c 1 v2.8.0 0
-5 e4da3b7fbbce2345d7772b0674a318d5 1 v2.8.0 0
-... ... ... ... ...
-127014 d1f082ede77b17a99a9b0b240daf7bdf 0 v2.8.0 0
-127015 94f0d540830ccdc6b29c1938eea445cc 0 v2.8.0 0
-127016 709f74cf9721328e98be6f216e8a05a8 1 v2.9.0 0
-127017 1767ae3f8ffec269d9ed0ac0ede68d90 1 v2.8.0 0
-127018 8dd8503c49b5e8c6aaea1ed7f0c49765 1 v2.8.0 0
-127018 rows × 4 columns
+1. c4ca4238a0b923820dcc509a6f75849b 1 v2.8.0 0
+2. c81e728d9d4c2f636f067f89cc14862c 0 v2.9.0 0
+3. eccbc87e4b5ce2fe28308fd9f2a7baf3 1 v2.9.0 0
+4. a87ff679a2f3e71d9181a67b7542122c 1 v2.8.0 0
+5. e4da3b7fbbce2345d7772b0674a318d5 1 v2.8.0 0
+127014. d1f082ede77b17a99a9b0b240daf7bdf 0 v2.8.0 0
+127015. 94f0d540830ccdc6b29c1938eea445cc 0 v2.8.0 0
+127016. 709f74cf9721328e98be6f216e8a05a8 1 v2.9.0 0
+127017. 1767ae3f8ffec269d9ed0ac0ede68d90 1 v2.8.0 0
+127018. 8dd8503c49b5e8c6aaea1ed7f0c49765 1 v2.8.0 0
+127018. rows × 4 columns
 
 Description of columns
-uid - user ID
-experimentVariant - experiment variant
-version - version of the application
-purchase - the fact of purchase
+1. uid - user ID
+2. experimentVariant - experiment variant
+3. version - version of the application
+4. purchase - the fact of purchase
+
 Task
-Run an A/A test.
-Calculate the FPR on the level
- = 0.05 (put subsamples without return with a volume of 1000). You will see that
+1. Run an A/A test.
+2. Calculate the FPR on the level = 0.05 (put subsamples without return with a volume of 1000). You will see that
 ! We need the opposite - to be less.
-Find the reasons for the breakdown of the split system based on the results of the experiment (hint: find the anomaly in the application version).
-Write the conclusions that can be drawn based on the analysis of the results of the A/A test.
+3. Find the reasons for the breakdown of the split system based on the results of the experiment (hint: find the anomaly in the application version).
+4. Write the conclusions that can be drawn based on the analysis of the results of the A/A test.
 
 ## Task 5: Laboratory work #5
 
 There is data about a taxi company that wants to study driver churn and see what the differences are between drivers who leave the service and those who stay. It is necessary to formulate and test hypotheses, to identify groups of drivers who are most prone to "drain". Based on the results, draw conclusions about what can be improved in the service in order to make changes in the future.
 
 Data description
-city ​​- a city
-phone - the main device used by the driver
-signup_date - account registration date (YYYYMMDD)
-last_trip_date - date of the last trip (YYYYMMDD)
-avg_dist - average distance (in miles) per trip in the first 30 days after registration
-avg_rating_by_driver - average rating of trips by driver
-vg_rating_of_driver - average rating of the driver's trips
-surge_pct - percentage of trips made with a multiplier > 1 (appears when there is a lot of traffic, etc.)
-avg_surge - average surge multiplier for all trips of this driver
-trips_in_first_30_days - the number of trips made by the driver in the first 30 days after registration
-luxury_car_user - TRUE if the user used a premium car in the first 30 days
-weekday_pct - percentage of user trips made on weekdays
+1. city ​​- a city
+2. phone - the main device used by the driver
+3. signup_date - account registration date (YYYYMMDD)
+4. last_trip_date - date of the last trip (YYYYMMDD)
+5. avg_dist - average distance (in miles) per trip in the first 30 days after registration
+6. avg_rating_by_driver - average rating of trips by driver
+7. vg_rating_of_driver - average rating of the driver's trips
+8. surge_pct - percentage of trips made with a multiplier > 1 (appears when there is a lot of traffic, etc.)
+9. avg_surge - average surge multiplier for all trips of this driver
+10. trips_in_first_30_days - the number of trips made by the driver in the first 30 days after registration
+11. luxury_car_user - TRUE if the user used a premium car in the first 30 days
+12. weekday_pct - percentage of user trips made on weekdays
+
 Importantly
 If more than 30 days have passed since the last trip, the driver is considered to have stopped using the service (new variable churn): days are counted from the maximum date of the last trip in the data (last_trip_date).
 
