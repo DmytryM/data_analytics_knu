@@ -52,9 +52,6 @@ cars.csv
 
 ##### Column descriptions
 
-Data columns (total 26 columns):
- #   Column            Non-Null Count  Dtype  
----  ------            --------------  -----  
  1. car_ID            205 non-null    int64  
  2. symboling         205 non-null    int64  
  3. CarName           205 non-null    object 
